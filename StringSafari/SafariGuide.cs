@@ -42,7 +42,7 @@ namespace StringSafari
         public static bool HasZebra(string str)
         {
             // TODO
-            return str.ToLower()=="zebra";
+            return (str.ToLower()=="zebra");
         }
 
         /// <summary>
@@ -54,8 +54,22 @@ namespace StringSafari
         public static bool HasADazzle(string str)
         {
             // TODO
-            return false;
+
+            int fisrtZebra = str.IndexOf("zebra");
+            int lastZebra = str.LastIndexOf("zebra");
+            int numberOfZebras = lastZebra - fisrtZebra;
+
+            if (numberOfZebras >= 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+    
+
 
         /// <summary>
         /// Looks for at least two lions in <paramref name="str"/>.
@@ -67,7 +81,18 @@ namespace StringSafari
         public static bool HasAPride(string str)
         {
             // TODO
-            return false;
+            str = str.ToLower();
+            int fisrtLion = str.IndexOf("lion");
+            int lastLion = str.LastIndexOf("lion");
+            int numberOfLions = lastLion - fisrtLion;
+            if (numberOfLions >= 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
