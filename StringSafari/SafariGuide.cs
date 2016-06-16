@@ -42,7 +42,15 @@ namespace StringSafari
         public static bool HasZebra(string str)
         {
             // TODO
-            return (str.ToLower()=="zebra");
+          if (str.ToLower().Contains( "zebra")) //if not needed
+          //return HasBabyZebra(str.ToLower()); preferred it uses our method
+            {
+                return true;
+            }
+          else
+                {
+                return false;
+                }
         }
 
         /// <summary>
@@ -55,11 +63,7 @@ namespace StringSafari
         {
             // TODO
 
-            int fisrtZebra = str.IndexOf("zebra");
-            int lastZebra = str.LastIndexOf("zebra");
-            int numberOfZebras = lastZebra - fisrtZebra;
-
-            if (numberOfZebras >= 2)
+         if (HasBabyZebra(str) && HasAdultZebra(str))
             {
                 return true;
             }
@@ -104,7 +108,14 @@ namespace StringSafari
         public static bool ThereWillBeBlood(string str)
         {
             // TODO
-            return false;
+            if (HasAPride(str) && !HasADazzle(str))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -117,7 +128,15 @@ namespace StringSafari
         public static bool SafeDistanceToLion(string str)
         {
             // TODO
-            return false;
+            if (!(str.ToLower()).StartsWith("lion"))
+
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
